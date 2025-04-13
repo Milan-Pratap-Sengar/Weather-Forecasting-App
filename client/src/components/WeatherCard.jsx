@@ -36,7 +36,7 @@ function WeatherCard(){
 
             <Searchbar setData={setData}/>
             
-            <div className="mb-3 text-white w-[50%] h-[40%] ml-30 md:ml-40 sm:ml-36 lg:ml-38 flex-col">
+            <div className="mb-3 text-white w-[50%] h-[40%] ml-30 md:ml-40 sm:ml-36 lg:ml-36 flex-col">
                 <div className="text-[2rem]  p-1  w-full text-center">{mainData.name}</div>
                 <div className="w-full text-[1.2rem] p-1 text-center">{mainData.weather[0].description}</div>
                     <BsFillCloudSunFill className="w-full  h-12 p-1 text-center"  />
