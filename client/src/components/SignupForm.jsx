@@ -60,7 +60,7 @@ function Signup(){
                 </form>
                 <div className="mt-[15%] text-sm md:text-[15px] lg:mt-[2%]  text-center ml-[5%] font-sm">
                     <p>Already have a account? {"  "} <br />
-                        <NavLink className="font-bold underline text-[#0000CD] hover:text-[#005A9C] " to={"/"}>
+                        <NavLink className="font-bold underline text-[#0000CD]  hover:text-[#005A9C] " to={"/"}>
                             Login
                         </NavLink>
                     </p>

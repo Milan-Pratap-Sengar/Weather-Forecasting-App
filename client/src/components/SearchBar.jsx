@@ -32,10 +32,10 @@ function Searchbar({setData}){
 
     return (
         <div> 
-            <form onSubmit={submitHandler} className="w-[100%] p-3  mb-10 flex">
-                <input className="bg-white w-[90%] p-2 rounded-md" type="text" placeholder="Search for city..." value={city} onChange={(event)=> setCity(event.target.value)} /> 
-                <button type="submit" className=" bg-white text-black cursor-pointer ml-2 relative w-[8%] rounded-full">
-                    <IoSearchSharp className="absolute top-3 left-[30%]" />
+            <form onSubmit={submitHandler} className="w-[100%]  p-3  mb-6 flex">
+                <input className="bg-white w-[90%] text-sm p-2 rounded-md" type="text" placeholder="Search for city..." value={city} onChange={(event)=> setCity(event.target.value)} /> 
+                <button type="submit" className=" bg-white text-black cursor-pointer ml-3 relative w-[8%] mt-[1%] h-[35px] sm:h-[38px]   rounded-full">
+                    <IoSearchSharp className="absolute top-[30%] left-[27%]" />
                 </button>
             </form>
             
