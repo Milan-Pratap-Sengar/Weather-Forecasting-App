@@ -1,23 +1,19 @@
-const express=require('express');
+const express=require("express");
 const app=express();
-require("dotenv").config();
+require('dotenv').config()
+
 const PORT=process.env.PORT || 4000;
+
 app.use(express.json())
 
+const routes=require("./routes/routes")
+app.use("api/v1",routes);
 
-const todoRoutes=require("./routes/routes")
-app.use("/api/v1",todoRoutes); 
-
-// start server 
-app.listen(PORT,()=>{
-    console.log("App is running successfully ")
+app.use("/",(req,res)=>{
+    res.send("This is a Homepage")
 })
 
-// connect to the database
-const dbConnect=require("./config/db");
-dbConnect();
+const dbConnect=require("./config/config")
+dbConnect()
 
-// it is necessary to create default route
-app.get("/",(req,res)=>{
-    res.send("This is homepage")
-})
+app.listen(PORT,()=> console.log("server is running successfully on PORT 3000"));
