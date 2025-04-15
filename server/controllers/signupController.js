@@ -30,16 +30,17 @@ const signupController=async(req,res)=>{
         else{
             let hashedPassword;
             try{
-                hashedPassword=bcrypt.hash(password,10)
+                hashedPassword=await bcrypt.hash(password,10)
             }
             catch(err){
+                console.log(err);
                 return res.status(400).json({
                     success:false,
                     message:"Something went wrong while hashing"
                 })
             }
 
-            const savedUser=await userSchema.create(firstName,lastName,email,password=hashedPassword,contact)
+            const savedUser=await userSchema.create({firstName,lastName,email,password:hashedPassword,contact})
             return res.status(200).json({
                 success:true,
                 message:"Your account has created successfully",
@@ -49,6 +50,7 @@ const signupController=async(req,res)=>{
 
     }
     catch(err){
+        console.log(err);
         return res.status(400).json({
             success:false,
             err:err.message,

@@ -7,7 +7,7 @@ const PORT=process.env.PORT || 4000;
 app.use(express.json())
 
 const routes=require("./routes/routes")
-app.use("api/v1",routes);
+app.use("/api/v1",routes);
 
 app.use("/",(req,res)=>{
     res.send("This is a Homepage")

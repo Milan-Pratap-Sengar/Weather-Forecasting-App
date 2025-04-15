@@ -12,7 +12,7 @@ const loginController=async(req,res)=>{
             })
         }
 
-        const userDetails=await userSchema.findOne({email})
+        let userDetails=await userSchema.findOne({email})
         if(!userDetails){
             return res.status(400).json({
                 success:false,
@@ -33,7 +33,7 @@ const loginController=async(req,res)=>{
                     email:userDetails.email,
                     id:userDetails._id
                 }
-                const token=jwt.sign(payload,process.env.JWT_SECRET_KEY,{expiresIn:"2h"})
+                const token= jwt.sign(payload,process.env.JWT_SECRET_KEY,{expiresIn:"2h"})
                 userDetails=userDetails.toObject();
                 userDetails.JWTtoken=token
                 userDetails.password=undefined
@@ -45,6 +45,7 @@ const loginController=async(req,res)=>{
 
             }
             catch(err){
+                console.log(err);
                 return res.status(400).json({
                     success:false,
                     message:"Something went wrong.Please try again later"
@@ -54,7 +55,7 @@ const loginController=async(req,res)=>{
 
     }
     catch(err){
-        console.log(err.message)
+        console.log(err);
         return res.status(400).json({
             success:false,
             err:err.message,
